@@ -17,9 +17,9 @@ namespace Google.PubSub.NetCore.Demo.Controllers
             _publisherService = publisherService;
         }
         [HttpPost("register")]
-        public async Task<ActionResult<RegistrationResponse>> RegisterAsync(PublisherRequest publisherRequest)
+        public async Task<ActionResult<int>> RegisterAsync(PublisherRequest publisherRequest)
         {
-            return Ok(await _authenticationService.RegisterAsync(request));
+            return Ok(await _publisherService.PublishMessagesAsync(publisherRequest));
         }
     }
 }

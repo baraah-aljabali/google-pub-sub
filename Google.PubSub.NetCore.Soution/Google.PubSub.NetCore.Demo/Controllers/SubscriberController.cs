@@ -20,8 +20,8 @@ namespace Google.PubSub.NetCore.Demo.Controllers
 
         [HttpPost("messagecount")]
         public async Task<ActionResult<int>> GetMessageCount(SubscriberRequest subscriberRequest)
-        { 
-        return Ok(await _subscriberService.PullMessagesAsync()
+        {
+            return Ok(await _subscriberService.PullMessagesAsync(subscriberRequest));
         }
     }
 }
