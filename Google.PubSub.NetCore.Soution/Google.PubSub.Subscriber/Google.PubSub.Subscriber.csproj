@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.PubSub.V1" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,6 @@ namespace Google.PubSub.Publisher
 {
     public interface IPublisherService
     {
-        public Task<int> PublishMessagesAsync(string projectId, string topicId, IEnumerable<string> messageTexts);
+        public Task<int> PublishMessagesAsync(PublisherRequest publisherRequest);
     }
 }

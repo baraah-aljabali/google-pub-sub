@@ -32,6 +32,11 @@ namespace Google.PubSub.NetCore.Demo
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Google.PubSub.NetCore.Demo", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,6 @@
 ﻿using Google.Cloud.PubSub.V1;
 using Google.PubSub.Publisher;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,19 @@ namespace Google.PubSub.Producer
 {
     public class PublisherService : IPublisherService
     {
-        public async Task<int> PublishMessagesAsync(string projectId, string topicId, IEnumerable<string> messageTexts)
+        private readonly GooglePublisherOptions _googlePublisherOptions;
+        public PublisherService(IOptions<GooglePublisherOptions> publisherOptions)
         {
-            TopicName topicName = TopicName.FromProjectTopic(projectId, topicId);
+            _googlePublisherOptions = publisherOptions.Value;
+        }
+
+        public async Task<int> PublishMessagesAsync(PublisherRequest publisherRequest)
+        {
+            TopicName topicName = TopicName.FromProjectTopic(_googlePublisherOptions.ProjectId, _googlePublisherOptions.TopiId);
             PublisherClient publisher = await PublisherClient.CreateAsync(topicName);
 
             int publishedMessageCount = 0;
-            var publishTasks = messageTexts.Select(async text =>
+            var publishTasks = publisherRequest.messageTexts.Select(async text =>
             {
                 try
                 {
@@ -32,6 +39,5 @@ namespace Google.PubSub.Producer
             await Task.WhenAll(publishTasks);
             return publishedMessageCount;
         }
-
     }
 }

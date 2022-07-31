@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Google.PubSub.Subscriber
+﻿namespace Google.PubSub.Subscriber
 {
-    class SubscriberRequest
+    public class SubscriberRequest
     {
+        public bool acknowledge { get; set; }
     }
 }

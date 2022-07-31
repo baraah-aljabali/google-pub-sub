@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Google.PubSub.Publisher
 {
-    class PublisherRequest
+    public class PublisherRequest
     {
+        public IEnumerable<string> messageTexts { get; set; }
     }
 }
