@@ -11,8 +11,10 @@ namespace Google.PubSub.NetCore.Demo
 {
     public class Program
     {
+        private static string _setting_path = @"C:\pubsubsetting.json";
         public static void Main(string[] args)
         {
+            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", _setting_path);
             CreateHostBuilder(args).Build().Run();
         }
 

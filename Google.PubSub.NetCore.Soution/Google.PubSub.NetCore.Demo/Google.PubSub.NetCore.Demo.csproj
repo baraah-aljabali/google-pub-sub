@@ -8,4 +8,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Google.PubSub.Producer\Google.PubSub.Publisher.csproj" />
+    <ProjectReference Include="..\Google.PubSub.Subscriber\Google.PubSub.Subscriber.csproj" />
+  </ItemGroup>
+
 </Project>
