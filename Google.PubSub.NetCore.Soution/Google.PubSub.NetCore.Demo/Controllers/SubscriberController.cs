@@ -1,9 +1,5 @@
 ﻿using Google.PubSub.Subscriber;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Google.PubSub.NetCore.Demo.Controllers
@@ -18,7 +14,7 @@ namespace Google.PubSub.NetCore.Demo.Controllers
             this._subscriberService = subscriberService;
         }
 
-        [HttpPost("messagecount")]
+        [HttpPost("subscribe")]
         public async Task<ActionResult<int>> GetMessageCount(SubscriberRequest subscriberRequest)
         {
             return Ok(await _subscriberService.PullMessagesAsync(subscriberRequest));

@@ -8,6 +8,7 @@ namespace Google.PubSub.Subscriber
         public static IServiceCollection AddGooglePubSubSubscriberService(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<GoogleSubscriberOptions>(configuration.GetSection("GoogleSubscriber"));
+            services.AddScoped<ISubscriberService, SubscriberService>();
             return services;
         }
     }

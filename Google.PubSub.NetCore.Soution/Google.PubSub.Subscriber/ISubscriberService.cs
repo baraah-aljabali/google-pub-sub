@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Google.PubSub.Subscriber
 {
     public interface ISubscriberService
     {
-        Task<int> PullMessagesAsync(SubscriberRequest subscriberRequest);
+        Task<List<string>> PullMessagesAsync(SubscriberRequest subscriberRequest);
     }
 }

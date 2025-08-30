@@ -13,6 +13,9 @@ namespace Google.PubSub.Subscriber
         /// </summary>
         public string ProjectId { get; set; }
 
-        public string SubscriptionId { get; set; } = "my-sub";
+        public string SubscriptionId { get; set; } = "test-topic-sub";
+        public string TopiId { get; set; } = "test-topic";
+
+
     }
 }
